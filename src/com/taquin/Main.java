@@ -18,7 +18,7 @@ public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-        // write your code here
+        
         Scanner scanInput = new Scanner(System.in);
         System.out.println("Nombre d'agents : ");
         Agent.nbAgents = scanInput.nextInt();
@@ -48,7 +48,7 @@ public class Main {
 
     }
 
-    // On affiche notre tableau de depart avant de demarrer
+    // Affichage du tableau de départ
     public static void afficherGUIInitiale(){
 
         for (int i = 0; i < tableau.getTAILLE()*tableau.getTAILLE(); i++) {

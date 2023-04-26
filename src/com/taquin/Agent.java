@@ -16,7 +16,7 @@ public class Agent extends Thread{
     public static int nbAgents = 5;
     public static Agent[] ag = new Agent[nbAgents];
 
-    // Liste des agents qu'on peut placer sur notre tableau
+    // Agents disponible à placer sur le plateau
     public static Agent[] agents = {
             //new Agent(new Position(1,1), new Position(0,0), "0 ", "src/com/company/data/0.png"),
             new Agent(new Position(0,3), new Position(0,1), "1 ", "src/com/taquin/data/1.png"),
@@ -34,7 +34,7 @@ public class Agent extends Thread{
             new Agent(new Position(3,2), new Position(5,1), "24","src/com/taquin/data/24.png"),
     };
 
-    // Construction d'un agent
+    // Constructeur d'agent
     public Agent(Position positionInitiale, Position positionCible, String sym, String link){
         this.positionActuelle = positionInitiale;
         this.positionCible = positionCible;
@@ -59,7 +59,7 @@ public class Agent extends Thread{
         return link;
     }
 
-    // On met a jour la position en synchronizant nos agents avec notre tableau
+    // Mise à jour de la position des agents
     public void setPosition(Position position) throws InterruptedException {
 
         synchronized (tableau) {
@@ -82,12 +82,12 @@ public class Agent extends Thread{
         }
     }
 
-    // On verifie si on est a la position finale ou pas
+    // Position finale verifié ou non
     public boolean atteintDestination(){
         return getPosActuelle().equals(getPosCible());
     }
 
-    // On lance nos agents sur notre tableau en A* avec un reseau de communication entre eux
+    // Lancer le jeu avec l'algorithme A*
     public void run() {
 
         while(tableau.pasFini()) {

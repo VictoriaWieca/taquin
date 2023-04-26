@@ -30,7 +30,7 @@ public class Tableau {
         }
     }
 
-    // On verifie si un agent est a la position passee en parametre
+    // Verification de la présence d'un agent sur la position p
     public Agent agentALaPosition(Position p){
         for(Agent a:agents){
             if(a.getPosActuelle().equals(p)){
@@ -40,7 +40,7 @@ public class Tableau {
         return null;
     }
 
-    // On verifie si notre agent a un voisin
+    // Verification si oui ou non il y a un agent voisin
     public Agent agentVoisin(Agent a){
         Agent voisin = null;
         if((a.getPosActuelle().getX()<TAILLE-1)){
@@ -58,7 +58,7 @@ public class Tableau {
         return voisin;
     }
 
-    // On verifie si tous nos agents ont atteints leurs positions cibles
+    // Verfification si oui ou non l'agent est à la position finale
     public boolean pasFini(){
         for(Agent a : agents){
             if(!(a.getPosActuelle().equals(a.getPosCible()))){
@@ -68,7 +68,7 @@ public class Tableau {
         return false;
     }
 
-    // On lance tout nos threads (agents) et on reduit la priorite une fois la destination atteinte
+    // Résolution du tableau
     public void resoudre(){
         for(Agent a:agents){
             a.start();
@@ -78,7 +78,7 @@ public class Tableau {
         }
     }
 
-    // On met a jour notre GUI et notre terminal apres chaque mouvement
+    // Deplacement d'un agent
     public void deplacerAgent(Agent a, Position p) throws InterruptedException {
         Main.b[a.getPosActuelle().getX() * TAILLE + a.getPosActuelle().getY()].setIcon(new ImageIcon("src/com/company/data/blank.png"));
         Main.b[a.getPosActuelle().getX() * TAILLE + a.getPosActuelle().getY()].setFocusable(false);
@@ -91,7 +91,7 @@ public class Tableau {
         deplacement++;
     }
 
-    // On verifie si la case voisine du agent est libre
+    // Verification case libre
     public Position getcaseLibre(Agent a){
 
         Position position = a.getPosActuelle();
