@@ -1,1 +1,1 @@
-# Ceci est une manière de coder le jeu du taquin en utilisant l'alghorithme A* pour l'optimisation
+# Ceci est une manière de coder le jeu du taquin en utilisant l'alghorithme A* pour l'optimisation.
